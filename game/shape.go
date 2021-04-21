@@ -12,7 +12,7 @@ type Shape struct {
 	rotate          func(positions []*Position) []*Position
 }
 
-func (shape *Shape) rotateShape(){
+func (shape *Shape) rotateShape() {
 	shape.positions = shape.rotate(shape.positions)
 }
 
