@@ -47,11 +47,16 @@ type Shape struct {
 	currentRotation int
 	maxRotations    int
 	shapeType       ShapeType
-	rotate          func(positions []*Position) []*Position
+	rotate          func(positions []*Position, rotation int) ([]*Position,int)
 }
 
 func (shape *Shape) rotateShape() {
-	shape.positions = shape.rotate(shape.positions)
+	shape.positions , shape.currentRotation = shape.rotate(shape.positions,shape.currentRotation)
+	if (shape.currentRotation == shape.maxRotations){
+		shape.currentRotation = 1
+	}else{
+		shape.currentRotation ++
+	}
 }
 
 func (shape *Shape) fall() {
