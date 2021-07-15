@@ -33,13 +33,19 @@ func (position *Position) descX() {
 	position.x--
 }
 
+func (position *Position) descY() {
+	position.y--
+}
+
+
+
 type ShapeType int
 
 const (
-	Cube ShapeType = iota
-	Ele
-	Te
-	Bar
+	Cube ShapeType = 1
+	Ele            = 2
+	Te             = 3
+	Bar            = 4
 )
 
 type Shape struct {
@@ -47,16 +53,22 @@ type Shape struct {
 	currentRotation int
 	maxRotations    int
 	shapeType       ShapeType
-	rotate          func(positions []*Position, rotation int) ([]*Position,int)
+	rotate          func(positions []*Position, rotation int) ([]*Position, int)
+	initialize      func(positions []*Position) []*Position
 }
 
 func (shape *Shape) rotateShape() {
-	shape.positions , shape.currentRotation = shape.rotate(shape.positions,shape.currentRotation)
-	if (shape.currentRotation == shape.maxRotations){
+	shape.positions, shape.currentRotation = shape.rotate(shape.positions, shape.currentRotation)
+	if shape.currentRotation == shape.maxRotations {
 		shape.currentRotation = 1
-	}else{
-		shape.currentRotation ++
+	} else {
+		shape.currentRotation++
 	}
+}
+
+func (shape *Shape) initializeShape() {
+	shape.positions = shape.initialize(shape.positions)
+
 }
 
 func (shape *Shape) fall() {
