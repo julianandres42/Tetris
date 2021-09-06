@@ -37,15 +37,12 @@ func (position *Position) descY() {
 	position.y--
 }
 
-
-
 type ShapeType int
 
 const (
 	Cube ShapeType = 1
 	Ele            = 2
-	Te             = 3
-	Bar            = 4
+	Bar             = 3
 )
 
 type Shape struct {
@@ -53,12 +50,12 @@ type Shape struct {
 	currentRotation int
 	maxRotations    int
 	shapeType       ShapeType
-	rotate          func(positions []*Position, rotation int) ([]*Position, int)
-	initialize      func(positions []*Position) []*Position
+	rotateFunction  func([]*Position,  int) ([]*Position, int)
+	initialize      func(int) []*Position
 }
 
-func (shape *Shape) rotateShape() {
-	shape.positions, shape.currentRotation = shape.rotate(shape.positions, shape.currentRotation)
+func (shape *Shape) rotate() {
+	shape.positions, shape.currentRotation = shape.rotateFunction(shape.positions, shape.currentRotation)
 	if shape.currentRotation == shape.maxRotations {
 		shape.currentRotation = 1
 	} else {
@@ -66,8 +63,8 @@ func (shape *Shape) rotateShape() {
 	}
 }
 
-func (shape *Shape) initializeShape() {
-	shape.positions = shape.initialize(shape.positions)
+func (shape *Shape) initializeShape(start int) {
+	shape.positions = shape.initialize(start)
 
 }
 
