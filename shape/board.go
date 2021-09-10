@@ -1,4 +1,4 @@
-package Shape
+package shape
 
 type Square struct {
 	x int
