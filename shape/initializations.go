@@ -7,10 +7,10 @@ var mapperInitialization = initializationMapper{
 		positions := initializePositions(4)
 		positions[0].setX(start)
 		positions[0].setY(0)
-		positions[1].setX(start + 1)
-		positions[1].setY(0)
-		positions[2].setX(start)
-		positions[2].setY(1)
+		positions[1].setX(start)
+		positions[1].setY(1)
+		positions[2].setX(start+1)
+		positions[2].setY(0)
 		positions[3].setX(start + 1)
 		positions[3].setY(1)
 		return positions
@@ -22,7 +22,7 @@ var mapperInitialization = initializationMapper{
 		positions[1].setX(start)
 		positions[1].setY(1)
 		positions[2].setX(start + 1)
-		positions[2].setY(2)
+		positions[2].setY(1)
 		return positions
 	},
 	int(Bar): func(start int) []*Position {
@@ -38,9 +38,11 @@ var mapperInitialization = initializationMapper{
 }
 
 func initializePositions(size int) []*Position {
-	positions := make([]*Position, 4)
+	positions := make([]*Position, size)
 	for h := range positions {
 		positions[h] = &Position{}
 	}
 	return positions
 }
+
+

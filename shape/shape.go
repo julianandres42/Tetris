@@ -1,4 +1,4 @@
-package game
+package shape
 
 type Position struct {
 	x int
@@ -50,12 +50,12 @@ type Shape struct {
 	currentRotation int
 	maxRotations    int
 	shapeType       ShapeType
-	rotateFunction  func([]*Position,  int) ([]*Position, int)
+	rotateFunction  func([]*Position,  int) ([]*Position)
 	initialize      func(int) []*Position
 }
 
 func (shape *Shape) rotate() {
-	shape.positions, shape.currentRotation = shape.rotateFunction(shape.positions, shape.currentRotation)
+	shape.positions = shape.rotateFunction(shape.positions, shape.currentRotation)
 	if shape.currentRotation == shape.maxRotations {
 		shape.currentRotation = 1
 	} else {

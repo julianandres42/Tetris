@@ -1,4 +1,4 @@
-package game
+package Shape
 
 type Square struct {
 	x int

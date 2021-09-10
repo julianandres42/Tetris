@@ -1,4 +1,4 @@
-package game
+package shape
 
 type rotationMapper map[int]func(positions []*Position) []*Position
 
