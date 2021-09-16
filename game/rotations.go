@@ -1,4 +1,4 @@
-package shape
+package game
 
 type rotationMapper map[int]func(positions []*Position) []*Position
 
@@ -56,4 +56,8 @@ func rotateEle(positions []*Position, rotation int) []*Position {
 
 func rotateBar(positions []*Position, rotation int) []*Position {
 	return mapperBar[rotation](positions)
+}
+
+func rotateSquare(positions []*Position, rotation int) []*Position {
+	return positions;
 }
