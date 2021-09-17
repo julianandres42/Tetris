@@ -1,4 +1,4 @@
-package game
+package shape
 
 type Position struct {
 	x int

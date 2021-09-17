@@ -1,4 +1,4 @@
-package game
+package shape
 
 type initializationMapper map[int]func(int) []*Position
 

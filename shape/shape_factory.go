@@ -1,4 +1,4 @@
-package game
+package shape
 
 type shapeFactory map[int]func() *Shape
 
