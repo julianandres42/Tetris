@@ -13,3 +13,7 @@ type Cell struct {
 type Board struct {
 	matrix [][]*Cell
 }
+
+func (board *Board) init(lenght, height int) {
+	board.matrix = make([][]*Cell, lenght, height)
+}
