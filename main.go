@@ -10,7 +10,7 @@ import (
 func run() {
 	cfg := pixelgl.WindowConfig{
 		Title:  "Pixel Rocks!",
-		Bounds: pixel.R(0, 0, 1024, 768),
+		Bounds: pixel.R(0, 0, 638, 894),
 		VSync:  true,
 	}
 	win, err := pixelgl.NewWindow(cfg)
@@ -19,14 +19,12 @@ func run() {
 	}
 
 	imd := imdraw.New(nil)
-
 	imd.Color = colornames.Blueviolet
 	imd.EndShape = imdraw.RoundEndShape
-	imd.Push(pixel.V(100, 100), pixel.V(700, 100))
-	imd.EndShape = imdraw.RoundEndShape
-	imd.Push(pixel.V(700, 500),pixel.V(100, 500))
-	imd.EndShape = imdraw.RoundEndShape
-	imd.Push(pixel.V(100, 500),pixel.V(100, 100))
+	imd.Push(pixel.V(119, 47), pixel.V(519, 47))
+	imd.Push(pixel.V(519, 47), pixel.V(519, 847))
+	imd.Push(pixel.V(519, 847), pixel.V(119, 847))
+	imd.Push(pixel.V(119, 847), pixel.V(119, 47))
 	imd.Line(5)
 	for !win.Closed() {
 		win.Clear(colornames.Aliceblue)
