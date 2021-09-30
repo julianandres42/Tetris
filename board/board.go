@@ -1,19 +1,30 @@
 package board
 
 type Square struct {
-	x int
-	y int
+	X int
+	Y int
 }
 
 type Cell struct {
-	square *Square
+	Square *Square
 	active bool
 }
 
 type Board struct {
-	matrix [][]*Cell
+	Matrix [][]*Cell
 }
 
-func (board *Board) init(lenght, height int) {
-	board.matrix = make([][]*Cell, lenght, height)
+func (board *Board) Init(lenght, height int) {
+
+	board.Matrix = make([][]*Cell, lenght)
+	initSquare := &Square{119, 847}
+	for i := range board.Matrix {
+		board.Matrix[i] = make([]*Cell, height)
+		for h := range board.Matrix[i] {
+			board.Matrix[i][h] = &Cell{&Square{initSquare.X, initSquare.Y}, false}
+			initSquare.X += 40
+		}
+		initSquare.X = 119
+		initSquare.Y -= 40
+	}
 }
