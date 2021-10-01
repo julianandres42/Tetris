@@ -29,5 +29,3 @@ func TestInitEle(t *testing.T) {
 		t.Errorf("Bad position")
 	}
 }
-
-

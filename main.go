@@ -23,27 +23,14 @@ func run() {
 	board.Init(20, 10)
 
 	imd := imdraw.New(nil)
+	drawer := &board2.Drawer{ImdDrawer: imd}
 	imd.Color = colornames.Grey
-	imd.EndShape = imdraw.RoundEndShape
 	for i, element := range board.Matrix {
 		for j := range element {
-			imd.Push(pixel.V(float64(board.Matrix[i][j].Square.X), float64(board.Matrix[i][j].Square.Y)),
-				pixel.V(float64(board.Matrix[i][j].Square.X)+40, float64(board.Matrix[i][j].Square.Y)))
-			imd.Push(pixel.V(float64(board.Matrix[i][j].Square.X)+40, float64(board.Matrix[i][j].Square.Y)),
-				pixel.V(float64(board.Matrix[i][j].Square.X)+40, float64(board.Matrix[i][j].Square.Y)-40))
-			imd.Push(pixel.V(float64(board.Matrix[i][j].Square.X)+40, float64(board.Matrix[i][j].Square.Y)-40),
-				pixel.V(float64(board.Matrix[i][j].Square.X), float64(board.Matrix[i][j].Square.Y)-40))
-			imd.Push(pixel.V(float64(board.Matrix[i][j].Square.X), float64(board.Matrix[i][j].Square.Y)-40),
-				pixel.V(float64(board.Matrix[i][j].Square.X), float64(board.Matrix[i][j].Square.Y)))
-			imd.Line(5)
+			drawer.DrawSquare(float64(board.Matrix[i][j].Square.X), float64(board.Matrix[i][j].Square.Y))
 		}
 	}
 
-	//imd.Push(pixel.V(119, 47), pixel.V(519, 47))
-	//imd.Push(pixel.V(519, 47), pixel.V(519, 847))
-	//imd.Push(pixel.V(519, 847), pixel.V(119, 847))
-	//imd.Push(pixel.V(119, 847), pixel.V(119, 47))
-	//imd.Line(5)
 	for !win.Closed() {
 		win.Clear(colornames.Aliceblue)
 		imd.Draw(win)

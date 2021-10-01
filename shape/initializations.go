@@ -9,7 +9,7 @@ var mapperInitialization = initializationMapper{
 		positions[0].setY(0)
 		positions[1].setX(start)
 		positions[1].setY(1)
-		positions[2].setX(start+1)
+		positions[2].setX(start + 1)
 		positions[2].setY(0)
 		positions[3].setX(start + 1)
 		positions[3].setY(1)
@@ -44,5 +44,3 @@ func initializePositions(size int) []*Position {
 	}
 	return positions
 }
-
-

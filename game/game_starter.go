@@ -1,23 +1,12 @@
 package game
 
 import (
+	board2 "Tetris/board"
 	"Tetris/shape"
-	"github.com/hajimehoshi/ebiten"
 )
 
 type Game struct {
-	currentShape *shape.Shape
-}
-
-func (g *Game) Update(screen *ebiten.Image) error {
-	// Write your game's logical update.
-	return nil
-}
-
-func (g *Game) Draw(screen *ebiten.Image) {
-	// Write your game's rendering.
-}
-
-func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
-	return 320, 240
+	CurrentShape *shape.Shape
+	Board        board2.Board
+	Drawer       board2.Drawer
 }

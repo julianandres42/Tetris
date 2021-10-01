@@ -15,7 +15,6 @@ type Board struct {
 }
 
 func (board *Board) Init(lenght, height int) {
-
 	board.Matrix = make([][]*Cell, lenght)
 	initSquare := &Square{119, 847}
 	for i := range board.Matrix {

@@ -20,7 +20,7 @@ var mapperEle = rotationMapper{
 	4: func(positions []*Position) []*Position {
 		positions[1].addX()
 		positions[1].descY()
-		positions[2].addX()   
+		positions[2].addX()
 		positions[2].addY()
 		return positions
 	},
@@ -59,5 +59,5 @@ func rotateBar(positions []*Position, rotation int) []*Position {
 }
 
 func rotateSquare(positions []*Position, rotation int) []*Position {
-	return positions;
+	return positions
 }

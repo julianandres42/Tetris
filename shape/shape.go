@@ -42,7 +42,7 @@ type ShapeType int
 const (
 	Cube ShapeType = 1
 	Ele            = 2
-	Bar             = 3
+	Bar            = 3
 )
 
 type Shape struct {
@@ -50,7 +50,7 @@ type Shape struct {
 	currentRotation int
 	maxRotations    int
 	shapeType       ShapeType
-	rotateFunction  func([]*Position,  int) ([]*Position)
+	rotateFunction  func([]*Position, int) []*Position
 	initialize      func(int) []*Position
 }
 
