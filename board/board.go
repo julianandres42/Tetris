@@ -1,5 +1,7 @@
 package board
 
+import "Tetris/shape"
+
 type Square struct {
 	X int
 	Y int
@@ -33,6 +35,12 @@ func (board *Board) EvaluateLines() {
 		if isLine(row) {
 			board.downRows(i)
 		}
+	}
+}
+
+func (board *Board) UpdateShape(shape shape.Shape, value bool) {
+	for _, element := range shape.Positions {
+		board.Matrix[element.GetY()][element.GetX()].active = value
 	}
 }
 

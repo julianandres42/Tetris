@@ -5,35 +5,35 @@ type Position struct {
 	y int
 }
 
-func (position *Position) setX(x int) {
+func (position *Position) SetX(x int) {
 	position.x = x
 }
 
-func (position *Position) setY(y int) {
+func (position *Position) SetY(y int) {
 	position.y = y
 }
 
-func (position *Position) getX() int {
+func (position *Position) GetX() int {
 	return position.x
 }
 
-func (position *Position) getY() int {
+func (position *Position) GetY() int {
 	return position.y
 }
 
-func (position *Position) addY() {
+func (position *Position) AddY() {
 	position.y++
 }
 
-func (position *Position) addX() {
+func (position *Position) AddX() {
 	position.x++
 }
 
-func (position *Position) descX() {
+func (position *Position) DescX() {
 	position.x--
 }
 
-func (position *Position) descY() {
+func (position *Position) DescY() {
 	position.y--
 }
 
@@ -46,42 +46,42 @@ const (
 )
 
 type Shape struct {
-	positions       []*Position
-	currentRotation int
-	maxRotations    int
-	shapeType       ShapeType
-	rotateFunction  func([]*Position, int) []*Position
+	Positions       []*Position
+	CurrentRotation int
+	MaxRotations    int
+	ShapeType       ShapeType
+	RotateFunction  func([]*Position, int) []*Position
 	initialize      func(int) []*Position
 }
 
 func (shape *Shape) rotate() {
-	shape.positions = shape.rotateFunction(shape.positions, shape.currentRotation)
-	if shape.currentRotation == shape.maxRotations {
-		shape.currentRotation = 1
+	shape.Positions = shape.RotateFunction(shape.Positions, shape.CurrentRotation)
+	if shape.CurrentRotation == shape.MaxRotations {
+		shape.CurrentRotation = 1
 	} else {
-		shape.currentRotation++
+		shape.CurrentRotation++
 	}
 }
 
 func (shape *Shape) initializeShape(start int) {
-	shape.positions = shape.initialize(start)
+	shape.Positions = shape.initialize(start)
 
 }
 
 func (shape *Shape) fall() {
-	for i := 0; i < len(shape.positions); i++ {
-		shape.positions[i].addY()
+	for i := 0; i < len(shape.Positions); i++ {
+		shape.Positions[i].AddY()
 	}
 }
 
 func (shape *Shape) moveRight() {
-	for i := 0; i < len(shape.positions); i++ {
-		shape.positions[i].addX()
+	for i := 0; i < len(shape.Positions); i++ {
+		shape.Positions[i].AddX()
 	}
 }
 
 func (shape *Shape) moveLeft() {
-	for i := 0; i < len(shape.positions); i++ {
-		shape.positions[i].descX()
+	for i := 0; i < len(shape.Positions); i++ {
+		shape.Positions[i].DescX()
 	}
 }

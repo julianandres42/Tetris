@@ -4,48 +4,48 @@ type rotationMapper map[int]func(positions []*Position) []*Position
 
 var mapperEle = rotationMapper{
 	2: func(positions []*Position) []*Position {
-		positions[1].descX()
-		positions[1].addY()
-		positions[2].descX()
-		positions[2].descY()
+		positions[1].DescX()
+		positions[1].AddY()
+		positions[2].DescX()
+		positions[2].DescY()
 		return positions
 	},
 	3: func(positions []*Position) []*Position {
-		positions[1].addX()
-		positions[1].addY()
-		positions[2].descX()
-		positions[2].addY()
+		positions[1].AddX()
+		positions[1].AddY()
+		positions[2].DescX()
+		positions[2].AddY()
 		return positions
 	},
 	4: func(positions []*Position) []*Position {
-		positions[1].addX()
-		positions[1].descY()
-		positions[2].addX()
-		positions[2].addY()
+		positions[1].AddX()
+		positions[1].DescY()
+		positions[2].AddX()
+		positions[2].AddY()
 		return positions
 	},
 	1: func(positions []*Position) []*Position {
-		positions[1].descX()
-		positions[1].descY()
-		positions[2].addX()
-		positions[2].descY()
+		positions[1].DescX()
+		positions[1].DescY()
+		positions[2].AddX()
+		positions[2].DescY()
 		return positions
 	},
 }
 
 var mapperBar = rotationMapper{
 	2: func(positions []*Position) []*Position {
-		positions[1].descX()
-		positions[1].addY()
-		positions[2].addX()
-		positions[2].descY()
+		positions[1].DescX()
+		positions[1].AddY()
+		positions[2].AddX()
+		positions[2].DescY()
 		return positions
 	},
 	1: func(positions []*Position) []*Position {
-		positions[1].addX()
-		positions[1].descY()
-		positions[2].descX()
-		positions[2].addY()
+		positions[1].AddX()
+		positions[1].DescY()
+		positions[2].DescX()
+		positions[2].AddY()
 		return positions
 	},
 }

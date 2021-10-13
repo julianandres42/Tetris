@@ -11,20 +11,20 @@ var shapeFct = shapeFactory{
 func getSquare() *Shape {
 	return &Shape{
 		initialize:     mapperInitialization[int(Cube)],
-		rotateFunction: rotateSquare,
+		RotateFunction: rotateSquare,
 	}
 }
 
 func getEle() *Shape {
 	return &Shape{
 		initialize:     mapperInitialization[int(Ele)],
-		rotateFunction: rotateEle,
+		RotateFunction: rotateEle,
 	}
 }
 
 func getBar() *Shape {
 	return &Shape{
 		initialize:     mapperInitialization[int(Bar)],
-		rotateFunction: rotateBar,
+		RotateFunction: rotateBar,
 	}
 }

@@ -43,6 +43,12 @@ func TestBoard_EvaluateLines(t *testing.T) {
 	}
 }
 
+func TestBoard_UpdateShape(t *testing.T) {
+	board := &Board{}
+	board.Init(20, 10)
+	//shape := shape2.Shape{}
+}
+
 func setLine(cells []*Cell) {
 	for _, cell := range cells {
 		cell.active = true
