@@ -1,9 +1,9 @@
 package shape
 
-type initializationMapper map[int]func(int) []*Position
+type initializationMapper map[int]func(int) ([]*Position, int)
 
 var mapperInitialization = initializationMapper{
-	int(Cube): func(start int) []*Position {
+	int(Cube): func(start int) ([]*Position, int) {
 		positions := initializePositions(4)
 		positions[0].SetX(start)
 		positions[0].SetY(0)
@@ -13,9 +13,9 @@ var mapperInitialization = initializationMapper{
 		positions[2].SetY(0)
 		positions[3].SetX(start + 1)
 		positions[3].SetY(1)
-		return positions
+		return positions, 0
 	},
-	int(Ele): func(start int) []*Position {
+	int(Ele): func(start int) ([]*Position, int) {
 		positions := initializePositions(3)
 		positions[0].SetX(start)
 		positions[0].SetY(0)
@@ -23,9 +23,9 @@ var mapperInitialization = initializationMapper{
 		positions[1].SetY(1)
 		positions[2].SetX(start + 1)
 		positions[2].SetY(1)
-		return positions
+		return positions, 2
 	},
-	int(Bar): func(start int) []*Position {
+	int(Bar): func(start int) ([]*Position, int) {
 		positions := initializePositions(3)
 		positions[0].SetX(start)
 		positions[0].SetY(0)
@@ -33,7 +33,7 @@ var mapperInitialization = initializationMapper{
 		positions[1].SetY(1)
 		positions[2].SetX(start)
 		positions[2].SetY(2)
-		return positions
+		return positions, 1
 	},
 }
 

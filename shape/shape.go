@@ -51,10 +51,14 @@ type Shape struct {
 	MaxRotations    int
 	ShapeType       ShapeType
 	RotateFunction  func([]*Position, int) []*Position
-	initialize      func(int) []*Position
+	initialize      func(int) ([]*Position, int)
 }
 
-func (shape *Shape) rotate() {
+func (shape *Shape) InitializeShape(start int) {
+	shape.Positions, shape.MaxRotations = shape.initialize(start)
+}
+
+func (shape *Shape) Rotate() {
 	shape.Positions = shape.RotateFunction(shape.Positions, shape.CurrentRotation)
 	if shape.CurrentRotation == shape.MaxRotations {
 		shape.CurrentRotation = 1
@@ -63,24 +67,19 @@ func (shape *Shape) rotate() {
 	}
 }
 
-func (shape *Shape) initializeShape(start int) {
-	shape.Positions = shape.initialize(start)
-
-}
-
-func (shape *Shape) fall() {
+func (shape *Shape) Fall() {
 	for i := 0; i < len(shape.Positions); i++ {
 		shape.Positions[i].AddY()
 	}
 }
 
-func (shape *Shape) moveRight() {
+func (shape *Shape) MoveRight() {
 	for i := 0; i < len(shape.Positions); i++ {
 		shape.Positions[i].AddX()
 	}
 }
 
-func (shape *Shape) moveLeft() {
+func (shape *Shape) MoveLeft() {
 	for i := 0; i < len(shape.Positions); i++ {
 		shape.Positions[i].DescX()
 	}
