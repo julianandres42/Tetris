@@ -51,11 +51,12 @@ type Shape struct {
 	MaxRotations    int
 	ShapeType       ShapeType
 	RotateFunction  func([]*Position, int) []*Position
-	initialize      func(int) ([]*Position, int)
+	initialize      func(int) ([]*Position, int, ShapeType)
 }
 
 func (shape *Shape) InitializeShape(start int) {
-	shape.Positions, shape.MaxRotations = shape.initialize(start)
+	shape.Positions, shape.MaxRotations, shape.ShapeType = shape.initialize(start)
+	shape.CurrentRotation = 1
 }
 
 func (shape *Shape) Rotate() {
