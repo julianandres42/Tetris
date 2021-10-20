@@ -11,7 +11,11 @@ type Drawer struct {
 	ImdDrawer *imdraw.IMDraw
 }
 
-func (drawer *Drawer) DrawBoard(board Board, color color.Color) {
+func (drawer *Drawer) Init() {
+	drawer.ImdDrawer = imdraw.New(nil)
+}
+
+func (drawer *Drawer) DrawBoard(board *Board, color color.Color) {
 	drawer.ImdDrawer.Color = color
 	for i, element := range board.Matrix {
 		for j := range element {
