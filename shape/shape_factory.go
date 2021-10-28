@@ -2,7 +2,7 @@ package shape
 
 type shapeFactory map[int]func() *Shape
 
-var shapeFct = shapeFactory{
+var ShapeFct = shapeFactory{
 	int(Cube): GetSquare,
 	int(Ele):  GetEle,
 	int(Bar):  GetBar,

@@ -3,7 +3,7 @@ package shape
 import "testing"
 
 func TestShape_InitializeShape(t *testing.T) {
-	shape := shapeFct[int(Ele)]()
+	shape := ShapeFct[int(Ele)]()
 	shape.InitializeShape(5)
 	if len(shape.Positions) != 3 {
 		t.Errorf("Bad size, got %d, expected %d", len(shape.Positions), 3)
@@ -11,7 +11,7 @@ func TestShape_InitializeShape(t *testing.T) {
 }
 
 func TestShape_Rotate(t *testing.T) {
-	shape := shapeFct[int(Ele)]()
+	shape := ShapeFct[int(Ele)]()
 	shape.InitializeShape(5)
 	if shape.CurrentRotation != 1 {
 		t.Errorf("Bad rotation, got %d, expected %d", shape.CurrentRotation, 1)
@@ -32,7 +32,7 @@ func TestShape_Rotate(t *testing.T) {
 }
 
 func TestShape_Fall(t *testing.T) {
-	shape := shapeFct[int(Cube)]()
+	shape := ShapeFct[int(Cube)]()
 	shape.InitializeShape(5)
 	yInit := shape.Positions[0].GetY()
 	shape.Fall()
@@ -42,7 +42,7 @@ func TestShape_Fall(t *testing.T) {
 }
 
 func TestShape_MoveLeft(t *testing.T) {
-	shape := shapeFct[int(Cube)]()
+	shape := ShapeFct[int(Cube)]()
 	shape.InitializeShape(5)
 	xInit := shape.Positions[0].GetX()
 	shape.MoveLeft()
@@ -52,7 +52,7 @@ func TestShape_MoveLeft(t *testing.T) {
 }
 
 func TestShape_MoveRight(t *testing.T) {
-	shape := shapeFct[int(Cube)]()
+	shape := ShapeFct[int(Cube)]()
 	shape.InitializeShape(5)
 	xInit := shape.Positions[0].GetX()
 	shape.MoveRight()

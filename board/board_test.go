@@ -14,14 +14,14 @@ func TestBoard_Init(t *testing.T) {
 	if board.Matrix[0][0].Square.X != 119 {
 		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[0][0].Square.X, 119))
 	}
-	if board.Matrix[0][0].Square.Y != 847 {
-		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[0][0].Square.Y, 847))
+	if board.Matrix[0][0].Square.Y != 487 {
+		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[0][0].Square.Y, 487))
 	}
 	if board.Matrix[19][9].Square.X != 479 {
 		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[19][9].Square.X, 479))
 	}
-	if board.Matrix[19][9].Square.Y != 87 {
-		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[19][9].Square.Y, 87))
+	if board.Matrix[19][9].Square.Y != -273 {
+		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[19][9].Square.Y, -273))
 	}
 }
 
