@@ -38,7 +38,7 @@ func (board *Board) EvaluateLines() {
 	}
 }
 
-func (board *Board) UpdateShape(shape shape.Shape, value bool) {
+func (board *Board) UpdateShape(shape *shape.Shape, value bool) {
 	for _, element := range shape.Positions {
 		board.Matrix[element.GetY()][element.GetX()].active = value
 	}

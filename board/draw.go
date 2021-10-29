@@ -23,6 +23,9 @@ func (drawer *Drawer) Init() {
 		Bounds: pixel.R(0, 0, 638, 894),
 		VSync:  true,
 	}
+}
+
+func (drawer *Drawer) OpenWindow() {
 	err := errors.New("")
 	drawer.Window, err = pixelgl.NewWindow(drawer.Cfg)
 	if err != nil {

@@ -14,6 +14,9 @@ func run() {
 		Drawer:       &board2.Drawer{},
 	}
 	game.Init()
+	game.OpenWindow()
+	game.DrawBoard()
+	game.Play()
 }
 
 func main() {
