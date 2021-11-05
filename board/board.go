@@ -18,14 +18,14 @@ type Board struct {
 
 func (board *Board) Init(lenght, height int) {
 	board.Matrix = make([][]*Cell, lenght)
-	initSquare := &Square{119, 487}
+	initSquare := &Square{120, 850}
 	for i := range board.Matrix {
 		board.Matrix[i] = make([]*Cell, height)
 		for h := range board.Matrix[i] {
 			board.Matrix[i][h] = &Cell{&Square{initSquare.X, initSquare.Y}, false}
 			initSquare.X += 40
 		}
-		initSquare.X = 119
+		initSquare.X = 120
 		initSquare.Y -= 40
 	}
 }

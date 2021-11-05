@@ -4,7 +4,6 @@ import (
 	board2 "Tetris/board"
 	"Tetris/shape"
 	"golang.org/x/image/colornames"
-	"math/rand"
 )
 
 type Game struct {
@@ -15,7 +14,7 @@ type Game struct {
 
 func (game *Game) Init() {
 	game.Drawer.Init()
-	game.Board.Init(10, 20)
+	game.Board.Init(20, 11)
 }
 
 func (game *Game) OpenWindow() {
@@ -27,6 +26,15 @@ func (game *Game) DrawBoard() {
 }
 
 func (game *Game) Play() {
-	game.CurrentShape = shape.ShapeFct[rand.Intn(4)]()
-	game.Board.UpdateShape(game.CurrentShape, true)
+	game.CurrentShape = shape.ShapeFct[int(shape.Bar)]()
+	game.CurrentShape.InitializeShape(5)
+	game.Drawer.DrawShape(game.Board,game.CurrentShape,colornames.Yellow)
+}
+
+func (game *Game) UpdateScreen(){
+	game.Drawer.UpdateScreen()
+}
+
+func (game *Game) UpdateScreenNoClose(){
+	game.Drawer.UpdateScreenNoClose()
 }

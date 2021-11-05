@@ -16,7 +16,9 @@ func run() {
 	game.Init()
 	game.OpenWindow()
 	game.DrawBoard()
+	game.UpdateScreen()
 	game.Play()
+	game.UpdateScreenNoClose()
 }
 
 func main() {

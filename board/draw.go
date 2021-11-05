@@ -37,20 +37,18 @@ func (drawer *Drawer) DrawBoard(board *Board, color color.Color) {
 	drawer.ImdDrawer.Color = color
 	for i, element := range board.Matrix {
 		for j := range element {
-			drawer.DrawSquare(float64(board.Matrix[i][j].Square.Y), float64(board.Matrix[i][j].Square.X))
+			drawer.DrawSquare(float64(board.Matrix[i][j].Square.X), float64(board.Matrix[i][j].Square.Y))
 		}
 	}
-	drawer.UpdateScreen()
 }
 
-func (drawer *Drawer) DrawShape(board Board, shape shape.Shape, color color.Color) {
+func (drawer *Drawer) DrawShape(board *Board, shape *shape.Shape, color color.Color) {
 	drawer.ImdDrawer.Color = color
 	board.UpdateShape(shape, true)
 	for _, element := range shape.Positions {
-		drawer.DrawSquare(float64(board.Matrix[element.GetY()][element.GetX()].Square.X),
-			float64(board.Matrix[element.GetY()][element.GetX()].Square.Y))
+		square := board.Matrix[element.GetY()][element.GetX()].Square
+		drawer.DrawSquare(float64(square.X), float64(square.Y))
 	}
-
 }
 
 func (drawer *Drawer) DrawSquare(x, y float64) {
@@ -62,8 +60,13 @@ func (drawer *Drawer) DrawSquare(x, y float64) {
 }
 
 func (drawer *Drawer) UpdateScreen() {
+	drawer.Window.Clear(colornames.Aliceblue)
+	drawer.ImdDrawer.Draw(drawer.Window)
+	drawer.Window.Update()
+}
+
+func (drawer *Drawer) UpdateScreenNoClose() {
 	for !drawer.Window.Closed() {
-		drawer.Window.Clear(colornames.Aliceblue)
 		drawer.ImdDrawer.Draw(drawer.Window)
 		drawer.Window.Update()
 	}
