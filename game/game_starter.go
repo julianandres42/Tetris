@@ -28,13 +28,13 @@ func (game *Game) DrawBoard() {
 func (game *Game) Play() {
 	game.CurrentShape = shape.ShapeFct[int(shape.Bar)]()
 	game.CurrentShape.InitializeShape(5)
-	game.Drawer.DrawShape(game.Board,game.CurrentShape,colornames.Yellow)
+	game.Drawer.DrawShape(game.Board, game.CurrentShape, colornames.Yellow)
 }
 
-func (game *Game) UpdateScreen(){
+func (game *Game) UpdateScreen() {
 	game.Drawer.UpdateScreen()
 }
 
-func (game *Game) UpdateScreenNoClose(){
+func (game *Game) UpdateScreenNoClose() {
 	game.Drawer.UpdateScreenNoClose()
 }

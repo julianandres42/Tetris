@@ -11,17 +11,17 @@ func TestBoard_Init(t *testing.T) {
 	if len(board.Matrix) != 20 {
 		t.Errorf(fmt.Sprintf("Got %d, expected %d", len(board.Matrix), 20))
 	}
-	if board.Matrix[0][0].Square.X != 119 {
-		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[0][0].Square.X, 119))
+	if board.Matrix[0][0].Square.X != 120 {
+		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[0][0].Square.X, 120))
 	}
-	if board.Matrix[0][0].Square.Y != 487 {
-		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[0][0].Square.Y, 487))
+	if board.Matrix[0][0].Square.Y != 850 {
+		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[0][0].Square.Y, 850))
 	}
-	if board.Matrix[19][9].Square.X != 479 {
-		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[19][9].Square.X, 479))
+	if board.Matrix[19][9].Square.X != 480 {
+		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[19][9].Square.X, 480))
 	}
-	if board.Matrix[19][9].Square.Y != -273 {
-		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[19][9].Square.Y, -273))
+	if board.Matrix[19][9].Square.Y != 90 {
+		t.Errorf(fmt.Sprintf("Got %d, expected %d", board.Matrix[19][9].Square.Y, 90))
 	}
 }
 
