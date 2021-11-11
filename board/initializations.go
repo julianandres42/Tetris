@@ -1,4 +1,4 @@
-package shape
+package board
 
 type initializationMapper map[int]func(int) ([]*Position, int, ShapeType)
 

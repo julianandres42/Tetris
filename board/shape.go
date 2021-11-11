@@ -1,40 +1,40 @@
-package shape
+package board
 
 type Position struct {
-	x int
-	y int
+	X int
+	Y int
 }
 
 func (position *Position) SetX(x int) {
-	position.x = x
+	position.X = x
 }
 
 func (position *Position) SetY(y int) {
-	position.y = y
+	position.Y = y
 }
 
 func (position *Position) GetX() int {
-	return position.x
+	return position.X
 }
 
 func (position *Position) GetY() int {
-	return position.y
+	return position.Y
 }
 
 func (position *Position) AddY() {
-	position.y++
+	position.Y++
 }
 
 func (position *Position) AddX() {
-	position.x++
+	position.X++
 }
 
 func (position *Position) DescX() {
-	position.x--
+	position.X--
 }
 
 func (position *Position) DescY() {
-	position.y--
+	position.Y--
 }
 
 type ShapeType int
@@ -51,12 +51,17 @@ type Shape struct {
 	MaxRotations    int
 	ShapeType       ShapeType
 	RotateFunction  func([]*Position, int) []*Position
+	CanFallFunction func([]*Position, [][]*Cell) bool
 	initialize      func(int) ([]*Position, int, ShapeType)
 }
 
 func (shape *Shape) InitializeShape(start int) {
 	shape.Positions, shape.MaxRotations, shape.ShapeType = shape.initialize(start)
 	shape.CurrentRotation = 1
+}
+
+func (shape *Shape) CanFall(matrix [][]*Cell) bool {
+	return shape.CanFallFunction(shape.Positions, matrix)
 }
 
 func (shape *Shape) Rotate() {

@@ -1,4 +1,4 @@
-package shape
+package board
 
 import "testing"
 

@@ -1,4 +1,6 @@
-package shape
+package board
+
+
 
 type shapeFactory map[int]func() *Shape
 

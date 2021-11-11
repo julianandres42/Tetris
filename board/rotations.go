@@ -1,4 +1,4 @@
-package shape
+package board
 
 type rotationMapper map[int]func(positions []*Position) []*Position
 

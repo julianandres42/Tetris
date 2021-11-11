@@ -51,6 +51,6 @@ func TestBoard_UpdateShape(t *testing.T) {
 
 func setLine(cells []*Cell) {
 	for _, cell := range cells {
-		cell.active = true
+		cell.Active = true
 	}
 }

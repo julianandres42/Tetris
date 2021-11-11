@@ -2,12 +2,11 @@ package game
 
 import (
 	board2 "Tetris/board"
-	"Tetris/shape"
 	"golang.org/x/image/colornames"
 )
 
 type Game struct {
-	CurrentShape *shape.Shape
+	CurrentShape *board2.Shape
 	Board        *board2.Board
 	Drawer       *board2.Drawer
 }
@@ -26,7 +25,7 @@ func (game *Game) DrawBoard() {
 }
 
 func (game *Game) Play() {
-	game.CurrentShape = shape.ShapeFct[int(shape.Bar)]()
+	game.CurrentShape = board2.ShapeFct[int(board2.Ele)]()
 	game.CurrentShape.InitializeShape(5)
 	game.Drawer.DrawShape(game.Board, game.CurrentShape, colornames.Yellow)
 }

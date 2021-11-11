@@ -1,7 +1,5 @@
 package board
 
-import "Tetris/shape"
-
 type Square struct {
 	X int
 	Y int
@@ -9,7 +7,7 @@ type Square struct {
 
 type Cell struct {
 	Square *Square
-	active bool
+	Active bool
 }
 
 type Board struct {
@@ -38,15 +36,15 @@ func (board *Board) EvaluateLines() {
 	}
 }
 
-func (board *Board) UpdateShape(shape *shape.Shape, value bool) {
+func (board *Board) UpdateShape(shape *Shape, value bool) {
 	for _, element := range shape.Positions {
-		board.Matrix[element.GetY()][element.GetX()].active = value
+		board.Matrix[element.GetY()][element.GetX()].Active = value
 	}
 }
 
 func isLine(cellRow []*Cell) bool {
 	for _, cell := range cellRow {
-		if !cell.active {
+		if !cell.Active {
 			return false
 		}
 	}
@@ -61,7 +59,7 @@ func (board *Board) downRows(rowIndex int) {
 
 func switchCellValues(source []*Cell, destiny []*Cell) {
 	for i := range source {
-		destiny[i].active = source[i].active
-		source[i].active = false
+		destiny[i].Active = source[i].Active
+		source[i].Active = false
 	}
 }

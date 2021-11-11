@@ -1,7 +1,6 @@
 package board
 
 import (
-	"Tetris/shape"
 	"errors"
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/imdraw"
@@ -42,7 +41,7 @@ func (drawer *Drawer) DrawBoard(board *Board, color color.Color) {
 	}
 }
 
-func (drawer *Drawer) DrawShape(board *Board, shape *shape.Shape, color color.Color) {
+func (drawer *Drawer) DrawShape(board *Board, shape *Shape, color color.Color) {
 	drawer.ImdDrawer.Color = color
 	board.UpdateShape(shape, true)
 	for _, element := range shape.Positions {
