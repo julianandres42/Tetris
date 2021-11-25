@@ -1,7 +1,5 @@
 package board
 
-
-
 type shapeFactory map[int]func() *Shape
 
 var ShapeFct = shapeFactory{
@@ -12,8 +10,9 @@ var ShapeFct = shapeFactory{
 
 func GetSquare() *Shape {
 	return &Shape{
-		initialize:     mapperInitialization[int(Cube)],
-		RotateFunction: rotateSquare,
+		initialize:      mapperInitialization[int(Cube)],
+		RotateFunction:  rotateSquare,
+		CanFallFunction: mapperFalls[int(Cube)],
 	}
 }
 

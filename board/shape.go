@@ -51,7 +51,7 @@ type Shape struct {
 	MaxRotations    int
 	ShapeType       ShapeType
 	RotateFunction  func([]*Position, int) []*Position
-	CanFallFunction func([]*Position, [][]*Cell) bool
+	CanFallFunction func([]*Position, [][]*Cell, int) bool
 	initialize      func(int) ([]*Position, int, ShapeType)
 }
 
@@ -61,7 +61,7 @@ func (shape *Shape) InitializeShape(start int) {
 }
 
 func (shape *Shape) CanFall(matrix [][]*Cell) bool {
-	return shape.CanFallFunction(shape.Positions, matrix)
+	return shape.CanFallFunction(shape.Positions, matrix, shape.CurrentRotation)
 }
 
 func (shape *Shape) Rotate() {

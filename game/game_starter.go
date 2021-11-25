@@ -25,7 +25,7 @@ func (game *Game) DrawBoard() {
 }
 
 func (game *Game) Play() {
-	game.CurrentShape = board2.ShapeFct[int(board2.Ele)]()
+	game.CurrentShape = board2.ShapeFct[int(board2.Cube)]()
 	game.CurrentShape.InitializeShape(5)
 	game.Drawer.DrawShape(game.Board, game.CurrentShape, colornames.Yellow)
 }
